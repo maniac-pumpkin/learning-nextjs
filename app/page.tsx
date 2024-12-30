@@ -1,8 +1,9 @@
 import { Suspense } from "react";
+import dynamic from "next/dynamic";
 
-import UserCard from "./users/user-card";
-import RecipeCard from "./recipes/recipe-card";
-import PostCard from "./posts/post-card";
+const UserCard = dynamic(() => import("./users/user-card"));
+const RecipeCard = dynamic(() => import("./recipes/recipe-card"));
+const PostCard = dynamic(() => import("./posts/post-card"));
 
 async function Users() {
   const response = await fetch("https://dummyjson.com/users?limit=3");

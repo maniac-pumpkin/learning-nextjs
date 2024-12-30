@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -9,6 +10,7 @@ function RecipeCard(props: any) {
   return (
     <li>
       <h2>{props.name}</h2>
+      <Image src={props.image} alt="food" width={100} height={100} />
       <div>
         <p>
           <strong>Prep Time:</strong> {props.prepTimeMinutes} minutes

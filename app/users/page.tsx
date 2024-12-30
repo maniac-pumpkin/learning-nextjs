@@ -1,4 +1,12 @@
-import UserCard from "./user-card";
+import { Metadata } from "next";
+import dynamic from "next/dynamic";
+
+const UserCard = dynamic(() => import("./user-card"));
+
+export const metadata: Metadata = {
+  title: "Users",
+  description: "User profiles",
+};
 
 export default async function Page() {
   const response = await fetch("https://dummyjson.com/users");
