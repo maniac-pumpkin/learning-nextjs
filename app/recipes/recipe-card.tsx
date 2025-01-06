@@ -34,26 +34,14 @@ function RecipeCard(props: any) {
           <strong>Rating:</strong> {props.rating} ({props.reviewCount} reviews)
         </p>
         <p>
-          <strong>Meal Type:</strong> {props.mealType.join(", ")}
+          <strong>Meal Type:</strong> {props.mealType}
         </p>
       </div>
       <h3>Ingredients</h3>
-      <ul>
-        {props.ingredients.map((ingredient, i) => (
-          <li key={i}>{ingredient}</li>
-        ))}
-      </ul>
+      <p>{props.ingredients}</p>
       <h3>Instructions</h3>
-      <ol>
-        {props.instructions.map((instruction, i) => (
-          <li key={i}>{instruction}</li>
-        ))}
-      </ol>
-      <div>
-        {props.tags.map((tag, i) => (
-          <span key={i}>{tag}</span>
-        ))}
-      </div>
+      <p>{props.instructions}</p>
+      <p>{props.tags}</p>
       <br />
       <button onClick={() => router.push(`/recipes/${props.id}`)}>View</button>
     </li>

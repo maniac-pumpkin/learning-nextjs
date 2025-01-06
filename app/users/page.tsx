@@ -9,12 +9,12 @@ export const metadata: Metadata = {
 };
 
 export default async function Page() {
-  const response = await fetch("https://dummyjson.com/users");
+  const response = await fetch("http://localhost:3000/api/users");
   const data = await response.json();
 
   return (
     <ul>
-      {data.users.map((each: any) => (
+      {data.map((each: any) => (
         <UserCard key={crypto.randomUUID()} {...each} />
       ))}
     </ul>

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import dynamic from "next/dynamic";
+import { notFound } from "next/navigation";
 
 const UserCard = dynamic(() => import("../user-card"));
 
@@ -19,7 +20,10 @@ export const generateMetadata = async ({
 export default async function Page({ params }: PropsType) {
   const { id } = await params;
 
-  const response = await fetch(`https://dummyjson.com/users/${id}`);
+  const response = await fetch(`http://localhost:3000/api/users/${id}`);
+
+  if (!response.ok) notFound();
+
   const data = await response.json();
 
   return <UserCard key={crypto.randomUUID()} {...data} />;

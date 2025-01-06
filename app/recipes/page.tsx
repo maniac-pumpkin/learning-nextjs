@@ -9,12 +9,12 @@ export const metadata: Metadata = {
 };
 
 export default async function Page() {
-  const response = await fetch("https://dummyjson.com/recipes");
+  const response = await fetch("http://localhost:3000/api/recipes");
   const data = await response.json();
 
   return (
     <ul>
-      {data.recipes.map((each: any) => (
+      {data.map((each: any) => (
         <RecipeCard key={crypto.randomUUID()} {...each} />
       ))}
     </ul>

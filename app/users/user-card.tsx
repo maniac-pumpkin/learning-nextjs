@@ -8,10 +8,7 @@ function UserCard(props: any) {
 
   return (
     <li>
-      <h2>{`${props.firstName} ${props.lastName}`}</h2>
-      <p>
-        <strong>Username:</strong> {props.username}
-      </p>
+      <h2>{props.name}</h2>
       <p>
         <strong>Email:</strong> {props.email}
       </p>
@@ -31,31 +28,18 @@ function UserCard(props: any) {
         <strong>Weight:</strong> {props.weight} kg
       </p>
       <p>
-        <strong>Eye Color:</strong> {props.eyeColor}
-      </p>
-      <p>
-        <strong>Hair Color:</strong> {props.hair.color}
+        <strong>Birth Date:</strong> {props.birthDate}
       </p>
       <h3>Address</h3>
-      <p>{`${props.address.address}, ${props.address.city}, ${props.address.state}, ${props.address.postalCode}, ${props.address.country}`}</p>
+      <p>{props.address}</p>
       <h3>Company</h3>
+      <p>{props.company}</p>
+      <h3>Financial Information</h3>
       <p>
-        <strong>Name:</strong> {props.company.name}
+        <strong>Card info:</strong> {props.bank}
       </p>
       <p>
-        <strong>Title:</strong> {props.company.title}
-      </p>
-      <h3>Bank Information</h3>
-      <p>
-        <strong>Card Type:</strong> {props.bank.cardType}
-      </p>
-      <p>
-        <strong>Card Number:</strong> **** **** ****
-        {props.bank.cardNumber.slice(-4)}
-      </p>
-      <h3>Crypto Wallet</h3>
-      <p>
-        <strong>{props.crypto.coin} Wallet:</strong> {props.crypto.wallet}
+        <strong>Crypto: {props.crypto}</strong>
       </p>
       <button onClick={() => router.push(`/users/${props.id}`)}>View</button>
     </li>

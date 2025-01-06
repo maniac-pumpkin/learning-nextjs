@@ -6,12 +6,12 @@ const RecipeCard = dynamic(() => import("./recipes/recipe-card"));
 const PostCard = dynamic(() => import("./posts/post-card"));
 
 async function Users() {
-  const response = await fetch("https://dummyjson.com/users?limit=3");
+  const response = await fetch("http://localhost:3000/api/users");
   const data = await response.json();
 
   return (
     <ul>
-      {data.users.map((each: any) => (
+      {data.map((each: any) => (
         <UserCard key={crypto.randomUUID()} {...each} />
       ))}
     </ul>
@@ -19,12 +19,12 @@ async function Users() {
 }
 
 async function Recipes() {
-  const response = await fetch("https://dummyjson.com/recipes?limit=3");
+  const response = await fetch("http://localhost:3000/api/recipes");
   const data = await response.json();
 
   return (
     <ul>
-      {data.recipes.map((each: any) => (
+      {data.map((each: any) => (
         <RecipeCard key={crypto.randomUUID()} {...each} />
       ))}
     </ul>
@@ -32,12 +32,12 @@ async function Recipes() {
 }
 
 async function Posts() {
-  const response = await fetch("https://dummyjson.com/posts?limit=3");
+  const response = await fetch("http://localhost:3000/api/posts");
   const data = await response.json();
 
   return (
     <ul>
-      {data.posts.map((each: any) => (
+      {data.map((each: any) => (
         <PostCard key={crypto.randomUUID()} {...each} />
       ))}
     </ul>

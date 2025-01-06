@@ -14,21 +14,17 @@ function PostCard(props: any) {
           <strong>Views:</strong> {props.views}
         </p>
         <p>
-          <strong>Likes:</strong> {props.reactions.likes}
+          <strong>Likes:</strong> {props.likes}
         </p>
         <p>
-          <strong>Dislikes:</strong> {props.reactions.dislikes}
+          <strong>Dislikes:</strong> {props.dislikes}
         </p>
         <p>
           <strong>User ID:</strong> {props.userId}
         </p>
       </div>
       <h3>Tags</h3>
-      <div>
-        {props.tags.map((tag, i) => (
-          <span key={i}>{tag}</span>
-        ))}
-      </div>
+      <p>{props.tags}</p>
       <br />
       <button onClick={() => router.push(`/posts/${props.id}`)}>View</button>
     </li>
